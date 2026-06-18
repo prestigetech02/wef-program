@@ -237,8 +237,8 @@ export default function App() {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-              From Survival to{' '}
-              <span className="text-gradient-light italic">Wealth Creation</span>
+              Market Woman Today,{' '}
+              <span className="text-gradient-light italic">Boss Woman Tomorrow</span>
             </h1>
 
             <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
@@ -521,24 +521,49 @@ export default function App() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-wef-charcoal py-10 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <img
-              src="/images/WhatsApp_Image_2026-06-18_at_11.52.46_AM.jpeg"
-              alt="WEF Logo"
-              className="h-10 w-auto object-contain brightness-0 invert opacity-80"
-            />
-            <div>
-              <p className="text-white font-semibold text-sm">Women Empowerment Fund</p>
-            </div>
-          </div>
+      <footer className="bg-wef-charcoal py-12 px-4">
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-8">
+          <img
+            src="/images/WhatsApp_Image_2026-06-18_at_11.52.46_AM.jpeg"
+            alt="WEF Logo"
+            className="h-10 w-auto object-contain"
+          />
 
-          <div className="text-center md:text-right">
-            <p className="text-gray-400 text-xs">
-              &copy; 2026 Women Empowerment Fund &bull; An initiative of MOJEC Group
+          <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            {[
+              { label: 'About', id: 'about' },
+              { label: 'Programme', id: 'programme' },
+              { label: 'Who We Serve', id: 'who' },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200"
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={goApply}
+              className="text-sm font-semibold text-wef-rose hover:text-white transition-colors duration-200"
+            >
+              Apply Now
+            </button>
+          </nav>
+
+          <div className="text-center space-y-1">
+            <p className="text-gray-500 text-xs">
+              Developed by{' '}
+              <a
+                href="https://www.techyx360.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-wef-rose hover:text-white transition-colors duration-200"
+              >
+                TechyX360
+              </a>
             </p>
-            <p className="text-gray-500 text-xs mt-1">Founded by Ms. Chantelle Abdul, GMD MOJEC Group</p>
+            <p className="text-gray-500 text-xs">&copy; 2026 All rights reserved.</p>
           </div>
         </div>
       </footer>

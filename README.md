@@ -30,3 +30,23 @@ The form posts to a Google Apps Script Web App, which appends each submission as
 8. Restart `npm run dev`. Submitted applications will now appear as rows in your sheet.
 
 > When you edit `Code.gs`, deploy a **new version** for the change to take effect.
+
+## Link previews & SEO (WhatsApp, Facebook, X)
+
+Before deploying, set your live site URL in `.env`:
+
+```
+VITE_SITE_URL=https://your-actual-domain.com
+```
+
+This injects absolute URLs into Open Graph, Twitter Card, and canonical meta tags so shared links show a title, description, and preview image.
+
+Included out of the box:
+
+- Open Graph tags (WhatsApp, Facebook, LinkedIn)
+- Twitter/X large-image card
+- JSON-LD structured data
+- `robots.txt` and `sitemap.xml`
+- Share preview image at `public/images/og-preview.jpg` (1200×630)
+
+After deploying, test your link at [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) or paste the URL in WhatsApp to confirm the preview.

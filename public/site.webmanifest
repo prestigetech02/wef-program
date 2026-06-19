@@ -1,0 +1,18 @@
+{
+  "name": "Women Empowerment Fund",
+  "short_name": "WEF",
+  "description": "Market Woman Today, Boss Woman Tomorrow — apply for the WEF 6-Month Empowerment Programme in Lagos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#831843",
+  "lang": "en-NG",
+  "icons": [
+    {
+      "src": "/images/WhatsApp_Image_2026-06-18_at_11.52.46_AM.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

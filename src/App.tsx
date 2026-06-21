@@ -14,6 +14,13 @@ import {
   X,
 } from 'lucide-react';
 import ApplyPage from './ApplyPage';
+import VisionaryPage from './VisionaryPage';
+
+const navSections = [
+  { label: 'About', id: 'about' },
+  { label: 'Programme', id: 'programme' },
+  { label: 'Who We Serve', id: 'who' },
+] as const;
 
 const phases = [
   {
@@ -129,15 +136,25 @@ function RevealSection({ children, className = '' }: { children: React.ReactNode
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [page, setPage] = useState<'home' | 'apply'>('home');
+  const [page, setPage] = useState<'home' | 'apply' | 'visionary'>('home');
 
   const goApply = () => {
     setPage('apply');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const goVisionary = () => {
+    setPage('visionary');
+    setMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (page === 'apply') {
     return <ApplyPage onBack={() => setPage('home')} />;
+  }
+
+  if (page === 'visionary') {
+    return <VisionaryPage onBack={() => setPage('home')} />;
   }
 
   const scrollTo = (id: string) => {
@@ -161,11 +178,7 @@ export default function App() {
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-8">
-              {[
-                { label: 'About', id: 'about' },
-                { label: 'Programme', id: 'programme' },
-                { label: 'Who We Serve', id: 'who' },
-              ].map((item) => (
+              {navSections.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
@@ -174,6 +187,12 @@ export default function App() {
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={goVisionary}
+                className="text-sm font-medium text-gray-600 hover:text-wef-pink transition-colors duration-200"
+              >
+                Our Visionary
+              </button>
               <button
                 onClick={goApply}
                 className="bg-gradient-to-r from-wef-pink to-wef-purple text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-pink-200 transition-all duration-300 hover:-translate-y-0.5"
@@ -196,11 +215,7 @@ export default function App() {
         {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden bg-white border-t border-pink-100 px-4 py-4 flex flex-col gap-4">
-            {[
-              { label: 'About', id: 'about' },
-              { label: 'Programme', id: 'programme' },
-              { label: 'Who We Serve', id: 'who' },
-            ].map((item) => (
+            {navSections.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
@@ -209,6 +224,12 @@ export default function App() {
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={goVisionary}
+              className="text-left text-base font-medium text-gray-700 hover:text-wef-pink transition-colors py-1"
+            >
+              Our Visionary
+            </button>
             <button
               onClick={goApply}
               className="bg-gradient-to-r from-wef-pink to-wef-purple text-white font-semibold px-5 py-3 rounded-full text-center"
@@ -530,11 +551,7 @@ export default function App() {
           />
 
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {[
-              { label: 'About', id: 'about' },
-              { label: 'Programme', id: 'programme' },
-              { label: 'Who We Serve', id: 'who' },
-            ].map((item) => (
+            {navSections.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
@@ -543,6 +560,12 @@ export default function App() {
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={goVisionary}
+              className="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              Our Visionary
+            </button>
             <button
               onClick={goApply}
               className="text-sm font-semibold text-wef-rose hover:text-white transition-colors duration-200"
